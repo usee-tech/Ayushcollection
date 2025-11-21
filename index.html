@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Collection - Premium Fashion Brand</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles and variables */
+        :root {
+            --primary: #0b76ef;
+            --primary-light: #6ad1ff;
+            --dark: #071025;
+            --light: #f6f8fb;
+            --white: #ffffff;
+            --muted: #6b7280;
+            --radius: 12px;
+            --shadow: 0 8px 24px rgba(2, 6, 23, 0.06);
+            --transition: all 0.3s ease;
+            --error: #e74c3c;
+            --success: #2ecc71;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, Arial, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        /* Header styles */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(6px);
+            z-index: 40;
+            border-bottom: 1px solid #eef2f7;
+            padding: 12px 0;
+            animation: slideDown 0.5s ease;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .brand {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .brand-text h1 {
+            font-size: 20px;
+            font-weight: 800;
+        }
+        
+        .brand-text p {
+            font-size: 12px;
+            color: var(--muted);
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-links a {
+            font-weight: 700;
+            color: var(--muted);
+            text-decoration: none;
+            padding: 8px;
+            border-radius: 8px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 80%;
+            left: 10%;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+        
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .cart-icon:hover {
+            transform: scale(1.1);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            width: 22px;
+            height: 3px;
+            background: var(--dark);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        /* Hero section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border-radius: 14px;
+            margin: 40px 16px;
+            text-align: center;
+            box-shadow: 0 12px 40px rgba(11, 118, 239, 0.12);
+            animation: fadeIn 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1950') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .hero > .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+            animation: fadeIn 1s ease 0.2s both;
+        }
+        
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 24px;
+            animation: fadeIn 1s ease 0.4s both;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeIn 1s ease 0.6s both;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 0;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid var(--white);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Products section */
+        .products {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease;
+        }
+        
+        .section-title h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        
+        .section-title p {
+            color: var(--muted);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            animation: fadeInUp 0.6s ease;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .product-card:nth-child(1) { animation-delay: 0.1s; }
+        .product-card:nth-child(2) { animation-delay: 0.2s; }
+        .product-card:nth-child(3) { animation-delay: 0.3s; }
+        .product-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(2, 6, 23, 0.1);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .product-title {
+            font-weight: 800;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        
+        .product-price {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+        
+        .product-desc {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+        
+        .business-info {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            animation: pulse 3s infinite;
+        }
+        
+        .business-label {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+        
+        .business-name {
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .product-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .btn-message {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 60px 0;
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            animation: fadeIn 1s ease;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 60px 0;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            animation: fadeIn 1s ease;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            animation: slideInLeft 0.5s ease;
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .form-group:nth-child(1) { animation-delay: 0.1s; }
+        .form-group:nth-child(2) { animation-delay: 0.2s; }
+        .form-group:nth-child(3) { animation-delay: 0.3s; }
+        .form-group:nth-child(4) { animation-delay: 0.4s; }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(11, 118, 239, 0.1);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .error-message {
+            color: var(--error);
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+            animation: shake 0.5s ease;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        .form-group.error input,
+        .form-group.error textarea,
+        .form-group.error select {
+            border-color: var(--error);
+            animation: shake 0.5s ease;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary-light);
+            transition: width 0.3s ease;
+        }
+        
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+        
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-2px) rotate(5deg);
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            animation: zoomIn 0.3s ease;
+        }
+        
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            transform: rotate(90deg);
+        }
+        
+        /* Cart */
+        .cart-items {
+            margin: 20px 0;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            animation: slideInRight 0.3s ease;
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .cart-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .cart-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .cart-item-details {
+            flex: 1;
+            margin: 0 15px;
+        }
+        
+        .cart-item-title {
+            font-weight: 600;
+        }
+        
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 18px;
+            margin: 20px 0;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        /* Success Message */
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            animation: slideInDown 0.5s ease;
+        }
+        
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 880px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                right: 16px;
+                top: 70px;
+                background: var(--white);
+                padding: 16px;
+                border-radius: 8px;
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+                z-index: 50;
+                animation: slideDown 0.3s ease;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 28px;
+            }
+            
+            .section-title h2 {
+                font-size: 24px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="brand">
+                <div class="logo">A</div>
+                <div class="brand-text">
+                    <h1>Ayush Collection</h1>
+                    <p>Premium Fashion Brand</p>
+                </div>
+            </div>
+            <nav>
+                <div class="nav-links" id="navLinks">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#products">Products</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>AYUSH COLLECTION</h2>
+            <p>Discover premium fashion accessories at affordable prices</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" id="shopNowBtn">Shop Now</button>
+                <button class="btn btn-secondary" id="viewProductsBtn">View Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p>High-quality fashion accessories for every style</p>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Ayush Collection</h2>
+                <p>Our story and commitment to quality fashion</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Ayush Collection was founded with a vision to provide premium fashion accessories that combine style, comfort, and affordability. Our team works tirelessly to create products that reflect the latest trends while maintaining timeless elegance.</p>
+                    <p>We believe that fashion is a form of self-expression, and our mission is to empower individuals to express their unique personalities through our carefully curated collections.</p>
+                    <p>With years of experience in the fashion industry, we've built a reputation for quality craftsmanship, attention to detail, and exceptional customer service.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1950" alt="Ayush Collection Store">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team</p>
+            </div>
+            <div class="contact-form">
+                <div class="success-message" id="contactSuccess">
+                    Thank you! Your message has been sent successfully. We will contact you soon.
+                </div>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required>
+                        <div class="error-message" id="nameError">Please enter your full name</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" required>
+                        <div class="error-message" id="subjectError">Please enter a subject</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required></textarea>
+                        <div class="error-message" id="messageError">Please enter your message</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="brand">
+                    <div class="logo">A</div>
+                    <div class="brand-text">
+                        <h1>Ayush Collection</h1>
+                        <p>Premium Fashion Brand</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#products">Products</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p>&copy; <span id="year"></span> Ayush Collection. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Your Shopping Cart</h2>
+                <button class="close-modal" id="closeCartModal">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">NGN 0.00</span>
+            </div>
+            <button class="btn btn-primary" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Message Modal -->
+    <div class="modal" id="messageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Message Business</h2>
+                <button class="close-modal" id="closeMessageModal">&times;</button>
+            </div>
+            <div class="success-message" id="messageSuccess">
+                Thank you! Your message has been sent successfully. Ayush Collections will contact you soon.
+            </div>
+            <form id="messageForm">
+                <input type="hidden" id="messageProductTitle">
+                <div class="form-group">
+                    <label for="messageName">Your Name</label>
+                    <input type="text" id="messageName" required>
+                    <div class="error-message" id="messageNameError">Please enter your name</div>
+                </div>
+                <div class="form-group">
+                    <label for="messagePhone">Phone Number</label>
+                    <input type="tel" id="messagePhone" required>
+                    <div class="error-message" id="messagePhoneError">Please enter a valid phone number</div>
+                </div>
+                <div class="form-group">
+                    <label for="messageText">Your Message</label>
+                    <textarea id="messageText" required>I'm interested in this product. Please provide more details.</textarea>
+                    <div class="error-message" id="messageTextError">Please enter your message</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Product data based on the provided images
+        const products = [
+            {
+                id: 1,
+                title: "Original Jersey Veils and Designed Jersey Veils",
+                price: 4500.00,
+                currency: "NGN",
+                image: "hjb.jpeg",
+                description: "High-quality jersey veils available in various designs and colors. Perfect for any occasion."
+            },
+            {
+                id: 2,
+                title: "Pins and Magnets Pins",
+                price: 1500.00,
+                currency: "NGN",
+                image: "pins.jpeg",
+                description: "Stylish pins and magnets to accessorize your outfits and personal items."
+            },
+            {
+                id: 3,
+                title: "Handsleeve & Socks",
+                price: 1500.00,
+                currency: "NGN",
+                image: "hnds.jpeg",
+                description: "Comfortable and fashionable handsleeves and socks to complete your look."
+            }
+        ];
+
+        // Cart data
+        let cart = [];
+        let cartCount = 0;
+        let cartTotal = 0;
+        let currentProduct = null;
+
+        // DOM elements
+        const navLinks = document.getElementById('navLinks');
+        const hamburger = document.getElementById('hamburger');
+        const productsGrid = document.getElementById('productsGrid');
+        const cartIcon = document.getElementById('cartIcon');
+        const cartCountElement = document.getElementById('cartCount');
+        const cartModal = document.getElementById('cartModal');
+        const closeCartModal = document.getElementById('closeCartModal');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotalElement = document.getElementById('cartTotal');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const shopNowBtn = document.getElementById('shopNowBtn');
+        const viewProductsBtn = document.getElementById('viewProductsBtn');
+        const contactForm = document.getElementById('contactForm');
+        const messageModal = document.getElementById('messageModal');
+        const closeMessageModal = document.getElementById('closeMessageModal');
+        const messageForm = document.getElementById('messageForm');
+        const messageProductTitle = document.getElementById('messageProductTitle');
+        const contactSuccess = document.getElementById('contactSuccess');
+        const messageSuccess = document.getElementById('messageSuccess');
+
+        // Validation functions
+        function validateName(name) {
+            return name.trim().length >= 2;
+        }
+
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function validatePhone(phone) {
+            const phoneRegex = /^[0-9+-\s()]{10,}$/;
+            return phoneRegex.test(phone);
+        }
+
+        function validateRequired(value) {
+            return value.trim().length > 0;
+        }
+
+        function showError(inputId, errorId, message) {
+            document.getElementById(inputId).parentElement.classList.add('error');
+            document.getElementById(errorId).textContent = message;
+            document.getElementById(errorId).style.display = 'block';
+        }
+
+        function hideError(inputId, errorId) {
+            document.getElementById(inputId).parentElement.classList.remove('error');
+            document.getElementById(errorId).style.display = 'none';
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+            
+            // Render products
+            renderProducts();
+            
+            // Load cart from localStorage
+            loadCart();
+            
+            // Initialize scroll animations
+            initScrollAnimations();
+        });
+
+        // Scroll animations
+        function initScrollAnimations() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => observer.observe(el));
+        }
+
+        // Mobile navigation toggle
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Render products function
+        function renderProducts() {
+            productsGrid.innerHTML = '';
+            
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card fade-in';
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.title}" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">${product.title}</h3>
+                        <div class="product-price">${product.currency} ${product.price.toLocaleString()}.00</div>
+                        <p class="product-desc">${product.description}</p>
+                        <div class="business-info">
+                            <div class="business-label">About the business</div>
+                            <div class="business-name">Ayush Collections</div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-message message-business" data-id="${product.id}">Message business</button>
+                            <button class="btn btn-primary add-to-cart" data-id="${product.id}">Add to cart</button>
+                        </div>
+                    </div>
+                `;
+                productsGrid.appendChild(productCard);
+            });
+            
+            // Add event listeners to Add to Cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    addToCart(productId);
+                });
+            });
+            
+            // Add event listeners to Message Business buttons
+            document.querySelectorAll('.message-business').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    openMessageModal(productId);
+                });
+            });
+        }
+
+        // Cart functionality
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    title: product.title,
+                    price: product.price,
+                    currency: product.currency,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+            saveCart();
+            
+            // Show success message with animation
+            const btn = document.querySelector(`.add-to-cart[data-id="${productId}"]`);
+            const originalText = btn.textContent;
+            btn.innerHTML = '<div class="loading"></div>';
+            
+            setTimeout(() => {
+                btn.textContent = 'Added!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 1000);
+            }, 500);
+        }
+
+        function updateCart() {
+            // Update cart count
+            cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCountElement.textContent = cartCount;
+            
+            // Update cart total
+            cartTotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            cartTotalElement.textContent = `${cart[0]?.currency || 'NGN'} ${cartTotal.toLocaleString()}.00`;
+            
+            // Update cart items in modal
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p>Your cart is empty.</p>';
+                return;
+            }
+            
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.style.animationDelay = `${index * 0.1}s`;
+                cartItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="cart-item-details">
+                        <div class="cart-item-title">${item.title}</div>
+                        <div class="cart-item-price">${item.currency} ${item.price.toLocaleString()}.00 x ${item.quantity}</div>
+                    </div>
+                    <div>
+                        <button class="btn btn-secondary remove-from-cart" data-id="${item.id}">Remove</button>
+                    </div>
+                `;
+                cartItems.appendChild(cartItem);
+            });
+            
+            // Add event listeners to Remove buttons
+            document.querySelectorAll('.remove-from-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    removeFromCart(productId);
+                });
+            });
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCart();
+            saveCart();
+        }
+
+        function saveCart() {
+            localStorage.setItem('ayushCollectionCart', JSON.stringify(cart));
+        }
+
+        function loadCart() {
+            const savedCart = localStorage.getItem('ayushCollectionCart');
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                updateCart();
+            }
+        }
+
+        // Cart modal functionality
+        cartIcon.addEventListener('click', () => {
+            cartModal.style.display = 'flex';
+        });
+
+        closeCartModal.addEventListener('click', () => {
+            cartModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === cartModal) {
+                cartModal.style.display = 'none';
+            }
+        });
+
+        // Checkout functionality
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Add some items before checking out.');
+                return;
+            }
+            
+            // Add loading animation to checkout button
+            checkoutBtn.innerHTML = '<div class="loading"></div> Processing...';
+            
+            setTimeout(() => {
+                alert(`Thank you for your order! Total: ${cart[0]?.currency || 'NGN'} ${cartTotal.toLocaleString()}.00\n\nWe will contact you shortly to complete your purchase.`);
+                cart = [];
+                updateCart();
+                saveCart();
+                cartModal.style.display = 'none';
+                checkoutBtn.innerHTML = 'Proceed to Checkout';
+            }, 1500);
+        });
+
+        // Message modal functionality
+        function openMessageModal(productId) {
+            currentProduct = products.find(p => p.id === productId);
+            if (!currentProduct) return;
+            
+            messageProductTitle.value = currentProduct.title;
+            messageModal.style.display = 'flex';
+        }
+
+        closeMessageModal.addEventListener('click', () => {
+            messageModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === messageModal) {
+                messageModal.style.display = 'none';
+            }
+        });
+
+        // Message form validation and submission
+        messageForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('messageName').value;
+            const phone = document.getElementById('messagePhone').value;
+            const message = document.getElementById('messageText').value;
+            
+            // Reset errors
+            hideError('messageName', 'messageNameError');
+            hideError('messagePhone', 'messagePhoneError');
+            hideError('messageText', 'messageTextError');
+            
+            let isValid = true;
+            
+            // Validate name
+            if (!validateName(name)) {
+                showError('messageName', 'messageNameError', 'Please enter a valid name (at least 2 characters)');
+                isValid = false;
+            }
+            
+            // Validate phone
+            if (!validatePhone(phone)) {
+                showError('messagePhone', 'messagePhoneError', 'Please enter a valid phone number');
+                isValid = false;
+            }
+            
+            // Validate message
+            if (!validateRequired(message)) {
+                showError('messageText', 'messageTextError', 'Please enter your message');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Show success message
+                messageSuccess.style.display = 'block';
+                
+                // Reset form and close modal after delay
+                setTimeout(() => {
+                    messageForm.reset();
+                    messageModal.style.display = 'none';
+                    messageSuccess.style.display = 'none';
+                }, 3000);
+            }
+        });
+
+        // Contact form validation and submission
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Reset errors
+            hideError('name', 'nameError');
+            hideError('email', 'emailError');
+            hideError('subject', 'subjectError');
+            hideError('message', 'messageError');
+            
+            let isValid = true;
+            
+            // Validate name
+            if (!validateName(name)) {
+                showError('name', 'nameError', 'Please enter a valid name (at least 2 characters)');
+                isValid = false;
+            }
+            
+            // Validate email
+            if (!validateEmail(email)) {
+                showError('email', 'emailError', 'Please enter a valid email address');
+                isValid = false;
+            }
+            
+            // Validate subject
+            if (!validateRequired(subject)) {
+                showError('subject', 'subjectError', 'Please enter a subject');
+                isValid = false;
+            }
+            
+            // Validate message
+            if (!validateRequired(message)) {
+                showError('message', 'messageError', 'Please enter your message');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Show success message
+                contactSuccess.style.display = 'block';
+                
+                // Reset form after delay
+                setTimeout(() => {
+                    contactForm.reset();
+                    contactSuccess.style.display = 'none';
+                }, 5000);
+            }
+        });
+
+        // Button functionality
+        shopNowBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: document.getElementById('products').offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+
+        viewProductsBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: document.getElementById('products').offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if(window.innerWidth <= 880) {
+                        hamburger.classList.remove('active');
+                        navLinks.style.display = 'none';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

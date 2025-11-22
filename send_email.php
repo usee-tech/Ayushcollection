@@ -1,6 +1,6 @@
 <?php
 // Set the recipient email address
-$to = "aishaumarisah696@gmail.com";
+$to = "uibrahim6202@gmail.com";
 
 // Get form data
 $form_type = $_POST['form_type'];

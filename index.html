@@ -111,6 +111,12 @@
             height: 250px;
             object-fit: cover;
             transition: transform 0.5s ease;
+            background: linear-gradient(45deg, #8e44ad, #2c3e50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
         }
         
         .card:hover .card-image {
@@ -386,7 +392,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1950') center/cover;
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
             opacity: 0.1;
             z-index: 1;
         }
@@ -472,6 +478,11 @@
             height: 200px;
             object-fit: cover;
             transition: transform 0.5s ease;
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
         }
         
         .product-card:hover .product-img {
@@ -558,6 +569,13 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             animation: float 3s ease-in-out infinite;
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
         }
         
         @keyframes float {
@@ -803,6 +821,7 @@
             object-fit: cover;
             border-radius: 8px;
             transition: transform 0.3s ease;
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
         }
         
         .cart-item:hover img {
@@ -965,7 +984,10 @@
         <div class="cards-container">
             <!-- Ayush Collections Card -->
             <div class="card" onclick="openWebsite('ayush')">
-                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1950" alt="Ayush Collections" class="card-image">
+                <div class="card-image">
+                    <!-- Add your Ayush Collections image here -->
+                    Ayush Collections Image
+                </div>
                 <div class="card-content">
                     <h2>Ayush Collections</h2>
                     <p>Discover premium fashion accessories and clothing at affordable prices. Perfect for your everyday style and special occasions.</p>
@@ -984,7 +1006,10 @@
             
             <!-- Eesherh Graphics Card -->
             <div class="card" onclick="openWebsite('eesherh')">
-                <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?q=80&w=1950" alt="Eesherh Graphics" class="card-image">
+                <div class="card-image">
+                    <!-- Add your Eesherh Graphics image here -->
+                    Eesherh Graphics Image
+                </div>
                 <div class="card-content">
                     <h2>Eesherh Graphics</h2>
                     <p>Professional graphic design services to bring your ideas to life. From logos to complete brand identity packages.</p>
@@ -1081,7 +1106,8 @@
                         <p id="aboutText3">With years of experience in the fashion industry, we've built a reputation for quality craftsmanship, attention to detail, and exceptional customer service.</p>
                     </div>
                     <div class="about-image">
-                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1950" alt="Ayush Collection Store" id="aboutImage">
+                        <!-- Add your about section image here -->
+                        About Us Image
                     </div>
                 </div>
             </div>
@@ -1244,7 +1270,7 @@
                 title: "Original Jersey Veils and Designed Jersey Veils",
                 price: 4500.00,
                 currency: "NGN",
-                image: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?q=80&w=1950",
+                image: "", // Add your image path here
                 description: "High-quality jersey veils available in various designs and colors. Perfect for any occasion."
             },
             {
@@ -1252,7 +1278,7 @@
                 title: "Pins and Magnets Pins",
                 price: 1500.00,
                 currency: "NGN",
-                image: "https://images.unsplash.com/photo-1594736797933-d0d69bc71c6a?q=80&w=1950",
+                image: "", // Add your image path here
                 description: "Stylish pins and magnets to accessorize your outfits and personal items."
             },
             {
@@ -1260,7 +1286,7 @@
                 title: "Handsleeve & Socks",
                 price: 1500.00,
                 currency: "NGN",
-                image: "https://images.unsplash.com/photo-1588855763522-84e22c6b97c6?q=80&w=1950",
+                image: "", // Add your image path here
                 description: "Comfortable and fashionable handsleeves and socks to complete your look."
             }
         ];
@@ -1272,7 +1298,7 @@
                 title: "Flyer Design",
                 price: 1500.00,
                 currency: "NGN",
-                image: "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?q=80&w=1950",
+                image: "", // Add your image path here
                 description: "Professional flyer design for events, promotions, and marketing campaigns. Eye-catching designs that get results."
             },
             {
@@ -1280,7 +1306,7 @@
                 title: "Logo Design",
                 price: 2000.00,
                 currency: "NGN",
-                image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=1940",
+                image: "", // Add your image path here
                 description: "Custom logo design that represents your brand identity. Unique and memorable logos for businesses of all sizes."
             },
             {
@@ -1288,7 +1314,7 @@
                 title: "Calligraphy",
                 price: 1000.00,
                 currency: "NGN",
-                image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=1935",
+                image: "", // Add your image path here
                 description: "Beautiful calligraphy services for invitations, certificates, and special occasions. Elegant handwritten designs."
             },
             {
@@ -1296,7 +1322,7 @@
                 title: "Brand Identity Design",
                 price: 50000.00,
                 currency: "NGN",
-                image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1950",
+                image: "", // Add your image path here
                 description: "Complete brand identity package including logo, color palette, typography, and brand guidelines."
             },
             {
@@ -1304,7 +1330,7 @@
                 title: "Wedding Invitation",
                 price: 1000.00,
                 currency: "NGN",
-                image: "https://images.unsplash.com/photo-1519677100203-a0e668c92439?q=80&w=1950",
+                image: "", // Add your image path here
                 description: "Elegant wedding invitation designs that reflect your special day. Customizable templates available."
             },
             {
@@ -1312,7 +1338,7 @@
                 title: "Save the Date Card",
                 price: 700.00,
                 currency: "NGN",
-                image: "https://images.unsplash.com/photo-1530014708987-f32594f50b7d?q=80&w=1950",
+                image: "", // Add your image path here
                 description: "Creative save the date cards for weddings and special events. Make sure your guests mark their calendars."
             }
         ];
@@ -1332,7 +1358,7 @@
                 aboutText1: 'Ayush Collection was founded with a vision to provide premium fashion accessories that combine style, comfort, and affordability. Our team works tirelessly to create products that reflect the latest trends while maintaining timeless elegance.',
                 aboutText2: 'We believe that fashion is a form of self-expression, and our mission is to empower individuals to express their unique personalities through our carefully curated collections.',
                 aboutText3: 'With years of experience in the fashion industry, we\'ve built a reputation for quality craftsmanship, attention to detail, and exceptional customer service.',
-                aboutImage: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1950',
+                aboutImage: '', // Add your about image path here
                 copyrightName: 'Ayush Collection',
                 cartTitle: 'Your Shopping Cart',
                 messageModalTitle: 'Message Business',
@@ -1352,7 +1378,7 @@
                 aboutText1: 'Eesherh Graphics was founded with a vision to provide premium design services that combine creativity, quality, and affordability. Our team works tirelessly to create designs that reflect your brand while maintaining professional standards.',
                 aboutText2: 'We believe that great design is essential for business success, and our mission is to empower businesses and individuals to express their unique identities through our carefully crafted designs.',
                 aboutText3: 'With years of experience in the design industry, we\'ve built a reputation for quality work, attention to detail, and exceptional customer service.',
-                aboutImage: 'https://images.unsplash.com/photo-1581276879432-15e50529f34b?q=80&w=1950',
+                aboutImage: '', // Add your about image path here
                 copyrightName: 'Eesherh Graphics',
                 cartTitle: 'Your Service Requests',
                 messageModalTitle: 'Message Business',
@@ -1471,7 +1497,19 @@
             document.getElementById('aboutText1').textContent = content.aboutText1;
             document.getElementById('aboutText2').textContent = content.aboutText2;
             document.getElementById('aboutText3').textContent = content.aboutText3;
-            document.getElementById('aboutImage').src = content.aboutImage;
+            
+            // Set about image if provided
+            const aboutImage = document.getElementById('aboutImage');
+            if (content.aboutImage) {
+                aboutImage.src = content.aboutImage;
+                aboutImage.alt = content.title;
+                aboutImage.style.display = 'block';
+                aboutImage.parentElement.innerHTML = '';
+                aboutImage.parentElement.appendChild(aboutImage);
+            } else {
+                aboutImage.parentElement.innerHTML = 'About Us Image';
+            }
+            
             document.getElementById('footerLogo').textContent = content.logo;
             document.getElementById('footerTitle').textContent = content.title;
             document.getElementById('footerSubtitle').textContent = content.subtitle;
@@ -1490,8 +1528,16 @@
             products.forEach(product => {
                 const productCard = document.createElement('div');
                 productCard.className = 'product-card fade-in';
+                
+                let imageContent = '';
+                if (product.image) {
+                    imageContent = `<img src="${product.image}" alt="${product.title}" class="product-img">`;
+                } else {
+                    imageContent = `<div class="product-img">${product.title}</div>`;
+                }
+                
                 productCard.innerHTML = `
-                    <img src="${product.image}" alt="${product.title}" class="product-img">
+                    ${imageContent}
                     <div class="product-info">
                         <h3 class="product-title">${product.title}</h3>
                         <div class="product-price">${product.currency} ${product.price.toLocaleString()}.00</div>
@@ -1584,8 +1630,16 @@
                 const cartItem = document.createElement('div');
                 cartItem.className = 'cart-item';
                 cartItem.style.animationDelay = `${index * 0.1}s`;
+                
+                let imageContent = '';
+                if (item.image) {
+                    imageContent = `<img src="${item.image}" alt="${item.title}">`;
+                } else {
+                    imageContent = `<div style="width:60px;height:60px;background:linear-gradient(45deg, var(--primary), var(--primary-light));border-radius:8px;display:flex;align-items:center;justify-content:center;color:white;font-size:12px;">${item.title.substring(0,15)}...</div>`;
+                }
+                
                 cartItem.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}">
+                    ${imageContent}
                     <div class="cart-item-details">
                         <div class="cart-item-title">${item.title}</div>
                         <div class="cart-item-price">${item.currency} ${item.price.toLocaleString()}.00 x ${item.quantity}</div>

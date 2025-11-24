@@ -3,24 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayush Collections - Premium Fashion Brand</title>
+    <title>Premium Services - Fashion & Design</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Base styles and variables */
-        :root {
-            --primary: #0b76ef;
-            --primary-light: #6ad1ff;
-            --dark: #071025;
-            --light: #f6f8fb;
-            --white: #ffffff;
-            --muted: #6b7280;
-            --radius: 12px;
-            --shadow: 0 8px 24px rgba(2, 6, 23, 0.06);
-            --transition: all 0.3s ease;
-            --error: #e74c3c;
-            --success: #2ecc71;
-        }
-        
+        /* Base styles */
         * {
             margin: 0;
             padding: 0;
@@ -29,16 +15,192 @@
         
         body {
             font-family: 'Inter', system-ui, Arial, sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
+            background: #f6f8fb;
+            color: #2c3e50;
             line-height: 1.6;
-            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 16px;
+        }
+        
+        /* Landing Page Styles */
+        #landingPage {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #8e44ad, #2c3e50);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            transition: opacity 0.5s ease;
+        }
+        
+        .header {
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            max-width: 450px;
+            width: 100%;
+            animation: fadeInUp 0.8s ease;
+            opacity: 0;
+            animation-fill-mode: forwards;
+            border: 1px solid rgba(255,255,255,0.1);
+            cursor: pointer;
+        }
+        
+        .card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        
+        .card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover .card-image {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 30px;
+        }
+        
+        .card h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .card p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features i {
+            margin-right: 10px;
+            color: #bb8fce;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: #fff;
+            color: #8e44ad;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            width: 100%;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn-ayush {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .btn-ayush:hover {
+            background: #c0392b;
+        }
+        
+        .btn-eesherh {
+            background: #8e44ad;
+            color: white;
+        }
+        
+        .btn-eesherh:hover {
+            background: #732d91;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: rgba(255,255,255,0.7);
+            animation: fadeIn 1s ease 0.6s both;
+            font-size: 0.9rem;
+        }
+        
+        /* Main Website Styles (Hidden by default) */
+        #mainWebsite {
+            display: none;
         }
         
         /* Header styles */
@@ -141,6 +303,22 @@
             color: var(--primary);
         }
         
+        .back-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
         .cart-icon {
             position: relative;
             cursor: pointer;
@@ -218,11 +396,6 @@
             z-index: 2;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
         .hero h2 {
             font-size: 32px;
             margin-bottom: 12px;
@@ -241,51 +414,6 @@
             justify-content: center;
             flex-wrap: wrap;
             animation: fadeIn 1s ease 0.6s both;
-        }
-        
-        .btn {
-            padding: 10px 20px;
-            border-radius: 10px;
-            border: 0;
-            font-weight: 700;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .btn:hover::after {
-            width: 300px;
-            height: 300px;
-        }
-        
-        .btn-primary {
-            background: var(--white);
-            color: var(--primary);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--white);
-            border: 1px solid var(--white);
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
         /* Products section */
@@ -327,15 +455,12 @@
             animation-fill-mode: forwards;
         }
         
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
         .product-card:nth-child(1) { animation-delay: 0.1s; }
         .product-card:nth-child(2) { animation-delay: 0.2s; }
         .product-card:nth-child(3) { animation-delay: 0.3s; }
         .product-card:nth-child(4) { animation-delay: 0.4s; }
+        .product-card:nth-child(5) { animation-delay: 0.5s; }
+        .product-card:nth-child(6) { animation-delay: 0.6s; }
         
         .product-card:hover {
             transform: translateY(-8px);
@@ -805,116 +930,273 @@
             .products-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .card {
+                max-width: 100%;
+            }
+            
+            .card h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="brand">
-                <div class="logo">A</div>
-                <div class="brand-text">
-                    <h1>Ayush Collections</h1>
-                    <p>Premium Fashion Brand</p>
-                </div>
-            </div>
-            <nav>
-                <div class="nav-links" id="navLinks">
-                    <a href="#home" class="active">Home</a>
-                    <a href="#products">Products</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="cart-icon" id="cartIcon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count" id="cartCount">0</span>
-                </div>
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
+    <!-- Landing Page -->
+    <section id="landingPage">
+        <div class="header">
+            <h1>Welcome to Our Premium Services</h1>
+            <p>Choose between our exclusive fashion collections or professional graphic design services</p>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h2>AYUSH COLLECTIONS</h2>
-            <p>Discover premium fashion accessories at affordable prices</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary" id="shopNowBtn">Shop Now</button>
-                <button class="btn btn-secondary" id="viewProductsBtn">View Products</button>
+        
+        <div class="cards-container">
+            <!-- Ayush Collections Card -->
+            <div class="card" onclick="openWebsite('ayush')">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1950" alt="Ayush Collections" class="card-image">
+                <div class="card-content">
+                    <h2>Ayush Collections</h2>
+                    <p>Discover premium fashion accessories and clothing at affordable prices. Perfect for your everyday style and special occasions.</p>
+                    
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Original Jersey Veils & Designed Jersey Veils</li>
+                        <li><i class="fas fa-check"></i> Pins and Magnets Pins</li>
+                        <li><i class="fas fa-check"></i> Handsleeves & Socks</li>
+                        <li><i class="fas fa-check"></i> Fashion Accessories</li>
+                        <li><i class="fas fa-check"></i> Affordable Prices</li>
+                    </ul>
+                    
+                    <button class="btn btn-ayush">Enter Ayush Collections</button>
+                </div>
+            </div>
+            
+            <!-- Eesherh Graphics Card -->
+            <div class="card" onclick="openWebsite('eesherh')">
+                <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?q=80&w=1950" alt="Eesherh Graphics" class="card-image">
+                <div class="card-content">
+                    <h2>Eesherh Graphics</h2>
+                    <p>Professional graphic design services to bring your ideas to life. From logos to complete brand identity packages.</p>
+                    
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Flyer Design</li>
+                        <li><i class="fas fa-check"></i> Logo Design</li>
+                        <li><i class="fas fa-check"></i> Calligraphy Services</li>
+                        <li><i class="fas fa-check"></i> Brand Identity Design</li>
+                        <li><i class="fas fa-check"></i> Wedding Invitations & Save the Date Cards</li>
+                    </ul>
+                    
+                    <button class="btn btn-eesherh">Enter Eesherh Graphics</button>
+                </div>
             </div>
         </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="products" id="products">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Products</h2>
-                <p>High-quality fashion accessories for every style</p>
-            </div>
-            <div class="products-grid" id="productsGrid">
-                <!-- Products will be dynamically added here -->
-            </div>
+        
+        <div class="footer">
+            <p>&copy; 2023 Our Premium Services. All rights reserved. | Contact: 0916 006 8939</p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Ayush Collections</h2>
-                <p>Our story and commitment to quality fashion</p>
+    <!-- Main Website (Hidden by default) -->
+    <section id="mainWebsite">
+        <!-- Header -->
+        <header>
+            <div class="container header-container">
+                <div class="brand">
+                    <div class="logo" id="websiteLogo">A</div>
+                    <div class="brand-text">
+                        <h1 id="websiteTitle">Ayush Collection</h1>
+                        <p id="websiteSubtitle">Premium Fashion Brand</p>
+                    </div>
+                </div>
+                <nav>
+                    <div class="nav-links" id="navLinks">
+                        <a href="#home" class="active">Home</a>
+                        <a href="#products">Products</a>
+                        <a href="#about">About</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <button class="back-btn" onclick="goBackToLanding()">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <div class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                    <div class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </nav>
             </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Ayush Collections was founded with a vision to provide premium fashion accessories that combine style, comfort, and affordability. Our team works tirelessly to create products that reflect the latest trends while maintaining timeless elegance.</p>
-                    <p>We believe that fashion is a form of self-expression, and our mission is to empower individuals to express their unique personalities through our carefully curated collections.</p>
-                    <p>With years of experience in the fashion industry, we've built a reputation for quality craftsmanship, attention to detail, and exceptional customer service.</p>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <h2 id="heroTitle">AYUSH COLLECTION</h2>
+                <p id="heroDescription">Discover premium fashion accessories at affordable prices</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="shopNowBtn">Shop Now</button>
+                    <button class="btn btn-secondary" id="viewProductsBtn">View Products</button>
                 </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1950" alt="Ayush Collection Store">
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products" id="products">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="productsTitle">Our Products</h2>
+                    <p id="productsDescription">High-quality fashion accessories for every style</p>
                 </div>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2 id="aboutTitle">About Ayush Collection</h2>
+                    <p id="aboutDescription">Our story and commitment to quality fashion</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p id="aboutText1">Ayush Collection was founded with a vision to provide premium fashion accessories that combine style, comfort, and affordability. Our team works tirelessly to create products that reflect the latest trends while maintaining timeless elegance.</p>
+                        <p id="aboutText2">We believe that fashion is a form of self-expression, and our mission is to empower individuals to express their unique personalities through our carefully curated collections.</p>
+                        <p id="aboutText3">With years of experience in the fashion industry, we've built a reputation for quality craftsmanship, attention to detail, and exceptional customer service.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1950" alt="Ayush Collection Store" id="aboutImage">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch with our team</p>
+                </div>
+                <div class="contact-form">
+                    <div class="success-message" id="contactSuccess">
+                        Thank you! Your message has been sent successfully. We will contact you soon.
+                    </div>
+                    <form id="contactForm" action="https://formspree.io/f/manbenwr" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input name="name" type="text" id="name" required>
+                            <div class="error-message" id="nameError">Please enter your full name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input name="email" type="email" id="email" required>
+                            <div class="error-message" id="emailError">Please enter a valid email address</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input name="subject" type="text" id="subject" required>
+                            <div class="error-message" id="subjectError">Please enter a subject</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" required></textarea>
+                            <div class="error-message" id="messageError">Please enter your message</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="brand">
+                        <div class="logo" id="footerLogo">A</div>
+                        <div class="brand-text">
+                            <h1 id="footerTitle">Ayush Collection</h1>
+                            <p id="footerSubtitle">Premium Fashion Brand</p>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#products">Products</a>
+                        <a href="#about">About</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/2349160068939" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p>&copy; <span id="year"></span> <span id="copyrightName">Ayush Collection</span>. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Cart Modal -->
+        <div class="modal" id="cartModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="cartTitle">Your Shopping Cart</h2>
+                    <button class="close-modal" id="closeCartModal">&times;</button>
+                </div>
+                <div class="cart-items" id="cartItems">
+                    <!-- Cart items will be dynamically added here -->
+                </div>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">NGN 0.00</span>
+                </div>
+                <button class="btn btn-primary" id="checkoutBtn">Proceed to Checkout</button>
             </div>
         </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Get in touch with our team</p>
-            </div>
-            <div class="contact-form">
-                <div class="success-message" id="contactSuccess">
-                    Thank you! Your message has been sent successfully. We will contact you soon.
+        <!-- Message Modal -->
+        <div class="modal" id="messageModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="messageModalTitle">Message Business</h2>
+                    <button class="close-modal" id="closeMessageModal">&times;</button>
                 </div>
-                <form id="contactForm" action="send_email.php">
+                <div class="success-message" id="messageSuccess">
+                    Thank you! Your message has been sent successfully. <span id="successBusinessName">Ayush Collections</span> will contact you soon.
+                </div>
+                <form id="messageForm">
+                    <input type="hidden" id="messageProductTitle">
                     <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" required>
-                        <div class="error-message" id="nameError">Please enter your full name</div>
+                        <label for="messageName">Your Name</label>
+                        <input type="text" id="messageName" required>
+                        <div class="error-message" id="messageNameError">Please enter your name</div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" required>
-                        <div class="error-message" id="emailError">Please enter a valid email address</div>
+                        <label for="messagePhone">Phone Number</label>
+                        <input type="tel" id="messagePhone" required>
+                        <div class="error-message" id="messagePhoneError">Please enter a valid phone number</div>
                     </div>
                     <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" required>
-                        <div class="error-message" id="subjectError">Please enter a subject</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" required></textarea>
-                        <div class="error-message" id="messageError">Please enter your message</div>
+                        <label for="messageText">Your Message</label>
+                        <textarea id="messageText" required>I'm interested in this product. Please provide more details.</textarea>
+                        <div class="error-message" id="messageTextError">Please enter your message</div>
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
@@ -922,92 +1204,47 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="brand">
-                    <div class="logo">A</div>
-                    <div class="brand-text">
-                        <h1>Ayush Collections</h1>
-                        <p>Premium Fashion Brand</p>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#products">Products</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="social-icons">
-                    <a href="https://tiktok.com/@ayeshatorh_" class="social-icon"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/ayeshatorh_?igsh=MWthNXRqemc2MWpxYw==" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/+2349160068939" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                </div>
-                <p>&copy; <span id="year"></span> Ayush Collections. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Cart Modal -->
-    <div class="modal" id="cartModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Your Shopping Cart</h2>
-                <button class="close-modal" id="closeCartModal">&times;</button>
-            </div>
-            <div class="cart-items" id="cartItems">
-                <!-- Cart items will be dynamically added here -->
-            </div>
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cartTotal">NGN 0.00</span>
-            </div>
-            <button class="btn btn-primary" id="checkoutBtn">Proceed to Checkout</button>
-        </div>
-    </div>
-
-    <!-- Message Modal -->
-    <div class="modal" id="messageModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Message Business</h2>
-                <button class="close-modal" id="closeMessageModal">&times;</button>
-            </div>
-            <div class="success-message" id="messageSuccess">
-                Thank you! Your message has been sent successfully. Ayush Collections will contact you soon.
-            </div>
-            <form id="messageForm" action="https://formspree.io/f/manbenwr" method="POST" id="contactForm">
-                <input type="hidden" id="messageProductTitle">
-                <div class="form-group">
-                    <label for="messageName">Your Name</label>
-                    <input type="text" id="messageName" required>
-                    <div class="error-message" id="messageNameError">Please enter your name</div>
-                </div>
-                <div class="form-group">
-                    <label for="messagePhone">Phone Number</label>
-                    <input type="tel" id="messagePhone" required>
-                    <div class="error-message" id="messagePhoneError">Please enter a valid phone number</div>
-                </div>
-                <div class="form-group">
-                    <label for="messageText">Your Message</label>
-                    <textarea id="messageText" required>I'm interested in this product. Please provide more details.</textarea>
-                    <div class="error-message" id="messageTextError">Please enter your message</div>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
-        </div>
-    </div>
-
     <script>
-        // Product data based on the provided images
-        const products = [
+        // CSS Variables for different themes
+        const themes = {
+            ayush: {
+                primary: '#0b76ef',
+                primaryLight: '#6ad1ff',
+                primaryDark: '#0a5dc2',
+                dark: '#071025',
+                light: '#f6f8fb',
+                white: '#ffffff',
+                muted: '#6b7280',
+                radius: '12px',
+                shadow: '0 8px 24px rgba(2, 6, 23, 0.06)',
+                transition: 'all 0.3s ease',
+                error: '#e74c3c',
+                success: '#2ecc71'
+            },
+            eesherh: {
+                primary: '#8e44ad',
+                primaryLight: '#bb8fce',
+                primaryDark: '#732d91',
+                dark: '#2c3e50',
+                light: '#f6f8fb',
+                white: '#ffffff',
+                muted: '#6b7280',
+                radius: '12px',
+                shadow: '0 8px 24px rgba(2, 6, 23, 0.06)',
+                transition: 'all 0.3s ease',
+                error: '#e74c3c',
+                success: '#2ecc71'
+            }
+        };
+
+        // Product data for Ayush Collections
+        const ayushProducts = [
             {
                 id: 1,
                 title: "Original Jersey Veils and Designed Jersey Veils",
                 price: 4500.00,
                 currency: "NGN",
-                image: "hjb.jpeg",
+                image: "https://images.unsplash.com/photo-1581044777550-4cfa60707c03?q=80&w=1950",
                 description: "High-quality jersey veils available in various designs and colors. Perfect for any occasion."
             },
             {
@@ -1015,34 +1252,125 @@
                 title: "Pins and Magnets Pins",
                 price: 1500.00,
                 currency: "NGN",
-                image: "pins.jpeg",
+                image: "https://images.unsplash.com/photo-1594736797933-d0d69bc71c6a?q=80&w=1950",
                 description: "Stylish pins and magnets to accessorize your outfits and personal items."
             },
             {
                 id: 3,
-                title: "Handsleeve",
+                title: "Handsleeve & Socks",
                 price: 1500.00,
                 currency: "NGN",
-                image: "hnds.jpeg",
-                description: "Comfortable and fashionable handsleeves to complete your look."
-            },
-            {
-                id: 3,
-                title: "Socks",
-                price: 1500.00,
-                currency: "NGN",
-                image: "IMG-20251121-WA0027.jpg",
-                description: "Comfortable and fashionable socks to complete your look."
+                image: "https://images.unsplash.com/photo-1588855763522-84e22c6b97c6?q=80&w=1950",
+                description: "Comfortable and fashionable handsleeves and socks to complete your look."
             }
         ];
 
-        // Cart data
+        // Service data for Eesherh Graphics
+        const eesherhServices = [
+            {
+                id: 1,
+                title: "Flyer Design",
+                price: 1500.00,
+                currency: "NGN",
+                image: "https://images.unsplash.com/photo-1565688534245-05d6b5be184a?q=80&w=1950",
+                description: "Professional flyer design for events, promotions, and marketing campaigns. Eye-catching designs that get results."
+            },
+            {
+                id: 2,
+                title: "Logo Design",
+                price: 2000.00,
+                currency: "NGN",
+                image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=1940",
+                description: "Custom logo design that represents your brand identity. Unique and memorable logos for businesses of all sizes."
+            },
+            {
+                id: 3,
+                title: "Calligraphy",
+                price: 1000.00,
+                currency: "NGN",
+                image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=1935",
+                description: "Beautiful calligraphy services for invitations, certificates, and special occasions. Elegant handwritten designs."
+            },
+            {
+                id: 4,
+                title: "Brand Identity Design",
+                price: 50000.00,
+                currency: "NGN",
+                image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=1950",
+                description: "Complete brand identity package including logo, color palette, typography, and brand guidelines."
+            },
+            {
+                id: 5,
+                title: "Wedding Invitation",
+                price: 1000.00,
+                currency: "NGN",
+                image: "https://images.unsplash.com/photo-1519677100203-a0e668c92439?q=80&w=1950",
+                description: "Elegant wedding invitation designs that reflect your special day. Customizable templates available."
+            },
+            {
+                id: 6,
+                title: "Save the Date Card",
+                price: 700.00,
+                currency: "NGN",
+                image: "https://images.unsplash.com/photo-1530014708987-f32594f50b7d?q=80&w=1950",
+                description: "Creative save the date cards for weddings and special events. Make sure your guests mark their calendars."
+            }
+        ];
+
+        // Website content for different services
+        const websiteContent = {
+            ayush: {
+                logo: 'A',
+                title: 'Ayush Collection',
+                subtitle: 'Premium Fashion Brand',
+                heroTitle: 'AYUSH COLLECTION',
+                heroDescription: 'Discover premium fashion accessories at affordable prices',
+                productsTitle: 'Our Products',
+                productsDescription: 'High-quality fashion accessories for every style',
+                aboutTitle: 'About Ayush Collection',
+                aboutDescription: 'Our story and commitment to quality fashion',
+                aboutText1: 'Ayush Collection was founded with a vision to provide premium fashion accessories that combine style, comfort, and affordability. Our team works tirelessly to create products that reflect the latest trends while maintaining timeless elegance.',
+                aboutText2: 'We believe that fashion is a form of self-expression, and our mission is to empower individuals to express their unique personalities through our carefully curated collections.',
+                aboutText3: 'With years of experience in the fashion industry, we\'ve built a reputation for quality craftsmanship, attention to detail, and exceptional customer service.',
+                aboutImage: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1950',
+                copyrightName: 'Ayush Collection',
+                cartTitle: 'Your Shopping Cart',
+                messageModalTitle: 'Message Business',
+                successBusinessName: 'Ayush Collections',
+                products: ayushProducts
+            },
+            eesherh: {
+                logo: 'E',
+                title: 'Eesherh Graphics',
+                subtitle: 'Premium Design Services',
+                heroTitle: 'EESHERE GRAPHICS',
+                heroDescription: 'Professional graphic design services at affordable prices',
+                productsTitle: 'Our Services',
+                productsDescription: 'High-quality graphic design services for all your needs',
+                aboutTitle: 'About Eesherh Graphics',
+                aboutDescription: 'Our story and commitment to quality design',
+                aboutText1: 'Eesherh Graphics was founded with a vision to provide premium design services that combine creativity, quality, and affordability. Our team works tirelessly to create designs that reflect your brand while maintaining professional standards.',
+                aboutText2: 'We believe that great design is essential for business success, and our mission is to empower businesses and individuals to express their unique identities through our carefully crafted designs.',
+                aboutText3: 'With years of experience in the design industry, we\'ve built a reputation for quality work, attention to detail, and exceptional customer service.',
+                aboutImage: 'https://images.unsplash.com/photo-1581276879432-15e50529f34b?q=80&w=1950',
+                copyrightName: 'Eesherh Graphics',
+                cartTitle: 'Your Service Requests',
+                messageModalTitle: 'Message Business',
+                successBusinessName: 'Eesherh Graphics',
+                products: eesherhServices
+            }
+        };
+
+        // Global variables
+        let currentWebsite = '';
         let cart = [];
         let cartCount = 0;
         let cartTotal = 0;
         let currentProduct = null;
 
         // DOM elements
+        const landingPage = document.getElementById('landingPage');
+        const mainWebsite = document.getElementById('mainWebsite');
         const navLinks = document.getElementById('navLinks');
         const hamburger = document.getElementById('hamburger');
         const productsGrid = document.getElementById('productsGrid');
@@ -1063,75 +1391,101 @@
         const contactSuccess = document.getElementById('contactSuccess');
         const messageSuccess = document.getElementById('messageSuccess');
 
-        // Validation functions
-        function validateName(name) {
-            return name.trim().length >= 2;
-        }
-
-        function validateEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-
-        function validatePhone(phone) {
-            const phoneRegex = /^[0-9+-\s()]{10,}$/;
-            return phoneRegex.test(phone);
-        }
-
-        function validateRequired(value) {
-            return value.trim().length > 0;
-        }
-
-        function showError(inputId, errorId, message) {
-            document.getElementById(inputId).parentElement.classList.add('error');
-            document.getElementById(errorId).textContent = message;
-            document.getElementById(errorId).style.display = 'block';
-        }
-
-        function hideError(inputId, errorId) {
-            document.getElementById(inputId).parentElement.classList.remove('error');
-            document.getElementById(errorId).style.display = 'none';
-        }
-
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             // Set current year in footer
             document.getElementById('year').textContent = new Date().getFullYear();
             
-            // Render products
-            renderProducts();
-            
             // Load cart from localStorage
             loadCart();
-            
-            // Initialize scroll animations
-            initScrollAnimations();
         });
 
-        // Scroll animations
-        function initScrollAnimations() {
-            const fadeElements = document.querySelectorAll('.fade-in');
+        // Function to open the selected website
+        function openWebsite(website) {
+            currentWebsite = website;
             
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
+            // Apply theme
+            applyTheme(website);
             
-            fadeElements.forEach(el => observer.observe(el));
+            // Update website content
+            updateWebsiteContent(website);
+            
+            // Render products/services
+            renderProducts();
+            
+            // Show main website and hide landing page
+            landingPage.style.display = 'none';
+            mainWebsite.style.display = 'block';
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
         }
 
-        // Mobile navigation toggle
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
+        // Function to go back to landing page
+        function goBackToLanding() {
+            mainWebsite.style.display = 'none';
+            landingPage.style.display = 'flex';
+            
+            // Reset cart for the next visit
+            cart = [];
+            cartCount = 0;
+            cartTotal = 0;
+            updateCart();
+            saveCart();
+        }
 
-        // Render products function
+        // Function to apply theme based on website
+        function applyTheme(website) {
+            const theme = themes[website];
+            const root = document.documentElement;
+            
+            // Set CSS variables
+            root.style.setProperty('--primary', theme.primary);
+            root.style.setProperty('--primary-light', theme.primaryLight);
+            root.style.setProperty('--primary-dark', theme.primaryDark);
+            root.style.setProperty('--dark', theme.dark);
+            root.style.setProperty('--light', theme.light);
+            root.style.setProperty('--white', theme.white);
+            root.style.setProperty('--muted', theme.muted);
+            root.style.setProperty('--radius', theme.radius);
+            root.style.setProperty('--shadow', theme.shadow);
+            root.style.setProperty('--transition', theme.transition);
+            root.style.setProperty('--error', theme.error);
+            root.style.setProperty('--success', theme.success);
+        }
+
+        // Function to update website content
+        function updateWebsiteContent(website) {
+            const content = websiteContent[website];
+            
+            // Update all elements with content
+            document.getElementById('websiteLogo').textContent = content.logo;
+            document.getElementById('websiteTitle').textContent = content.title;
+            document.getElementById('websiteSubtitle').textContent = content.subtitle;
+            document.getElementById('heroTitle').textContent = content.heroTitle;
+            document.getElementById('heroDescription').textContent = content.heroDescription;
+            document.getElementById('productsTitle').textContent = content.productsTitle;
+            document.getElementById('productsDescription').textContent = content.productsDescription;
+            document.getElementById('aboutTitle').textContent = content.aboutTitle;
+            document.getElementById('aboutDescription').textContent = content.aboutDescription;
+            document.getElementById('aboutText1').textContent = content.aboutText1;
+            document.getElementById('aboutText2').textContent = content.aboutText2;
+            document.getElementById('aboutText3').textContent = content.aboutText3;
+            document.getElementById('aboutImage').src = content.aboutImage;
+            document.getElementById('footerLogo').textContent = content.logo;
+            document.getElementById('footerTitle').textContent = content.title;
+            document.getElementById('footerSubtitle').textContent = content.subtitle;
+            document.getElementById('copyrightName').textContent = content.copyrightName;
+            document.getElementById('cartTitle').textContent = content.cartTitle;
+            document.getElementById('messageModalTitle').textContent = content.messageModalTitle;
+            document.getElementById('successBusinessName').textContent = content.successBusinessName;
+        }
+
+        // Render products/services function
         function renderProducts() {
             productsGrid.innerHTML = '';
+            
+            const products = websiteContent[currentWebsite].products;
             
             products.forEach(product => {
                 const productCard = document.createElement('div');
@@ -1144,7 +1498,7 @@
                         <p class="product-desc">${product.description}</p>
                         <div class="business-info">
                             <div class="business-label">About the business</div>
-                            <div class="business-name">Ayush Collections</div>
+                            <div class="business-name">${websiteContent[currentWebsite].title}</div>
                         </div>
                         <div class="product-actions">
                             <button class="btn btn-message message-business" data-id="${product.id}">Message business</button>
@@ -1174,6 +1528,7 @@
 
         // Cart functionality
         function addToCart(productId) {
+            const products = websiteContent[currentWebsite].products;
             const product = products.find(p => p.id === productId);
             if (!product) return;
             
@@ -1258,15 +1613,12 @@
         }
 
         function saveCart() {
-            localStorage.setItem('ayushCollectionCart', JSON.stringify(cart));
+            localStorage.setItem(`${currentWebsite}Cart`, JSON.stringify(cart));
         }
 
         function loadCart() {
-            const savedCart = localStorage.getItem('ayushCollectionCart');
-            if (savedCart) {
-                cart = JSON.parse(savedCart);
-                updateCart();
-            }
+            // Cart is reset when going back to landing page, so we don't need to load it here
+            // This function is kept for consistency
         }
 
         // Cart modal functionality
@@ -1306,6 +1658,7 @@
 
         // Message modal functionality
         function openMessageModal(productId) {
+            const products = websiteContent[currentWebsite].products;
             currentProduct = products.find(p => p.id === productId);
             if (!currentProduct) return;
             
@@ -1460,7 +1813,42 @@
                 }
             });
         });
+
+        // Mobile navigation toggle
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Validation functions
+        function validateName(name) {
+            return name.trim().length >= 2;
+        }
+
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function validatePhone(phone) {
+            const phoneRegex = /^[0-9+-\s()]{10,}$/;
+            return phoneRegex.test(phone);
+        }
+
+        function validateRequired(value) {
+            return value.trim().length > 0;
+        }
+
+        function showError(inputId, errorId, message) {
+            document.getElementById(inputId).parentElement.classList.add('error');
+            document.getElementById(errorId).textContent = message;
+            document.getElementById(errorId).style.display = 'block';
+        }
+
+        function hideError(inputId, errorId) {
+            document.getElementById(inputId).parentElement.classList.remove('error');
+            document.getElementById(errorId).style.display = 'none';
+        }
     </script>
 </body>
 </html>
-                                  
